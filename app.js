@@ -24,5 +24,5 @@ app.use((error, req, res, next) => {
 })
 
 app.listen(5000, () => {
-	'app is running on port 5000'
+	console.log('app is running on port 5000')
 })
