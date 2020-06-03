@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 
 const placesRoutes = require('./routes/places-routes');
@@ -23,6 +24,10 @@ app.use((error, req, res, next) => {
 	res.status(error.code || 500).json({message: error.message || 'An unknown error occured'})
 })
 
-app.listen(5000, () => {
-	console.log('app is running on port 5000')
-})
+mongoose.connect('mongodb+srv://yoav:2xOeNxAGCzOY8bh5@cluster0-akskb.mongodb.net/places?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+	.then(() => {
+		app.listen(5000, () => {
+			console.log('app is running on port 5000')
+		})	
+	})
+	.catch(err => console.log('Could not connect to database, \n', err))
