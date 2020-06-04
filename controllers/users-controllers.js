@@ -1,16 +1,6 @@
-const { v4: uuid } = require('uuid');
 const { validationResult } = require('express-validator');
 const HttpError = require('../models/http-error');
 const User = require('../models/user');
-
-const DUMMY_USERS = [
-	{
-		id: 'u1',
-		name: 'Jane Doe',
-		email: 'test@test.com',
-		password: 'test'
-	}
-]
 
 const getUsers = async (req, res, next) => {
 	let users;
@@ -75,11 +65,6 @@ const login = async (req, res, next) => {
 		const error = new HttpError('Logging in failed. Please check credentials or try again later', 500)
 		return next(error);
 	}
-
-	// const identifiedUser = DUMMY_USERS.find(u => u.email === email);
-	// if(!identifiedUser || identifiedUser.password !== password) {
-	// 	throw new HttpError('Could not identify user, credentials might be wrong', 401);
-	// }
 
 	if(!userExists || userExists.password !== password) {
 		const error = new HttpError('Invalid credentials. Please check credentials or try again later', 401)

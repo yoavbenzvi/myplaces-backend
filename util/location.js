@@ -1,6 +1,6 @@
 const axios = require('axios')
 const HttpError = require('../models/http-error');
-const API_KEY = 'AIzaSyB_Xz_cTQkVaB3zFqhrGRKmWToqaeJiIeE';
+const API_KEY = 'AIzaSyB_Xz_cTQkVaB3zFqhrGRKmWToqaeJiIeE'; //To remove into a global variable
 
 const getCoordsForAddress = async (address) => {
 	const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${API_KEY}`);

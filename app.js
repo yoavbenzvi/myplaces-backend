@@ -23,6 +23,7 @@ app.use((error, req, res, next) => {
 	}
 	res.status(error.code || 500).json({message: error.message || 'An unknown error occured'})
 })
+//
 
 mongoose.set('useCreateIndex', true)
 mongoose.connect('mongodb+srv://yoav:2xOeNxAGCzOY8bh5@cluster0-akskb.mongodb.net/MERN?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
