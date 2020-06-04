@@ -24,10 +24,11 @@ app.use((error, req, res, next) => {
 	res.status(error.code || 500).json({message: error.message || 'An unknown error occured'})
 })
 
-mongoose.connect('mongodb+srv://yoav:2xOeNxAGCzOY8bh5@cluster0-akskb.mongodb.net/places?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.set('useCreateIndex', true)
+mongoose.connect('mongodb+srv://yoav:2xOeNxAGCzOY8bh5@cluster0-akskb.mongodb.net/MERN?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(() => {
 		app.listen(5000, () => {
 			console.log('app is running on port 5000')
 		})	
 	})
-	.catch(err => console.log('Could not connect to database, \n', err))
+	.catch(err => console.log('Could not connect to database (Check IP address), \n', err))
