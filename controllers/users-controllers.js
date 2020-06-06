@@ -58,20 +58,23 @@ const signup = async (req, res, next) => {
 const login = async (req, res, next) => {
 	const { email, password } = req.body;
 
-	let userExists;
+	let existingUser;
 	try {
-		userExists = await User.findOne({email})
+		existingUser = await User.findOne({email})
 	} catch(err) {
 		const error = new HttpError('Logging in failed. Please check credentials or try again later', 500)
 		return next(error);
 	}
 
-	if(!userExists || userExists.password !== password) {
+	if(!existingUser || existingUser.password !== password) {
 		const error = new HttpError('Invalid credentials. Please check credentials or try again later', 401)
 		return next(error);
 	}
 
-	res.json({message: 'Logged in'})
+	res.json({
+		message: 'Logged in', 
+		user: existingUser.toObject({ getters: true })
+	})
 }
 
 exports.getUsers = getUsers
