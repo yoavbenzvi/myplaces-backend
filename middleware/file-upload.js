@@ -1,8 +1,8 @@
 const multer = require('multer');
 //make sure this is the right way to import
-const uuid = require('uuid/v1');
+const { v1: uuid } = require('uuid');
 
-const MIME_TYPE_MAP[file.mimetype] = {
+const MIME_TYPE_MAP = {
 	'image/png': 'png',
 	'image/jpg': 'jpg',
 	'image/jpeg': 'jpeg'
