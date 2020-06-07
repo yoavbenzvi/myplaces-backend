@@ -85,8 +85,7 @@ const createPlace = async (req, res, next) => {
 		description,
 		address,
 		location: coordinates,
-		//DUMMY IMAGE - to change!
-		image: 'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg',
+		image: req.file.path,
 		creator
 	});
 
