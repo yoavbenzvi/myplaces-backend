@@ -1,0 +1,9 @@
+{
+	"env": {
+		"DB_USER": "yoav",
+		"DB_PASSWORD": "2xOeNxAGCzOY8bh5",
+		"DB_NAME": "MERN",
+		"GOOGLE_API_KEY": "AIzaSyB_Xz_cTQkVaB3zFqhrGRKmWToqaeJiIeE",
+		"JWT_KEY": "jwt_myplaces_token"
+	}
+}

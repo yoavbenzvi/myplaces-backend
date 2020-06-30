@@ -1,5 +1,4 @@
 const multer = require('multer');
-//make sure this is the right way to import
 const { v1: uuid } = require('uuid');
 
 const MIME_TYPE_MAP = {
